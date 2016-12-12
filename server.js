@@ -5,8 +5,9 @@ const multer = require('multer');
 const port = process.env.PORT || 3000;
 var app = express();
 
-var upload = multer({dest:'/'});
-
+//var upload = multer({dest:'/'});
+var storage = multer.memoryStorage()
+var upload = multer({ storage: storage })
 app.set('view engine','hbs');
 
 app.get('/',(req,res)=>{
